@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Understanding Abstraction in OOP — Muhammed Ahmed</title>
+<meta name="description" content="What abstraction actually means in object-oriented programming, with C# examples.">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="brand">muhammed<span>.dev</span></a>
+  <nav>
+    <a href="index.html#services">Services</a>
+    <a href="courses.html">Courses</a>
+    <a href="articles.html">Articles</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<article class="article">
+  <div class="article-head">
+    <a href="articles.html" class="back-link">&larr; all articles</a>
+    <div class="article-meta">
+      Sep 2026 · 6 min read
+      <span class="tag">OOP fundamentals</span>
+    </div>
+    <h1>Understanding Abstraction in OOP</h1>
+  </div>
+
+  <div class="article-body">
+    <p>
+      Most explanations of abstraction start with a definition like
+      "hiding implementation details" and then move on before it actually
+      means anything. That definition isn't wrong, but it's the kind of
+      sentence you can repeat in an interview without being able to use
+      it in real code. Here's the version I'd have wanted when I was
+      learning it.
+    </p>
+
+    <h2>Start with the question, not the keyword</h2>
+    <p>
+      Abstraction is really an answer to one question: what does the rest
+      of the program need to know about this thing to use it correctly?
+      Everything that isn't part of that answer gets hidden. Not because
+      it's secret, but because it isn't the caller's problem.
+    </p>
+    <p>
+      Think about a <strong>payment processor</strong> in an e-commerce
+      app. The checkout code needs to charge a card and know whether it
+      succeeded. It does not need to know which bank API was called, how
+      the request was retried, or how the response was parsed. Abstraction
+      draws that line on purpose.
+    </p>
+
+    <h2>What it looks like in C#</h2>
+    <p>
+      In C#, abstraction usually shows up as an <code>abstract class</code>
+      or an <code>interface</code> — a contract that says "anything that
+      claims to be this must be able to do these things," without saying
+      how.
+    </p>
+
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span></span><span></span><span></span>
+        <span class="file">IPaymentProcessor.cs</span>
+      </div>
+      <pre><code><span class="tok-kw">public</span> <span class="tok-kw">interface</span> <span class="tok-type">IPaymentProcessor</span>
+{
+    <span class="tok-type">PaymentResult</span> <span class="tok-fn">Charge</span>(<span class="tok-type">decimal</span> amount, <span class="tok-type">string</span> cardToken);
+}
+
+<span class="tok-kw">public</span> <span class="tok-kw">class</span> <span class="tok-type">StripeProcessor</span> : <span class="tok-type">IPaymentProcessor</span>
+{
+    <span class="tok-kw">public</span> <span class="tok-type">PaymentResult</span> <span class="tok-fn">Charge</span>(<span class="tok-type">decimal</span> amount, <span class="tok-type">string</span> cardToken)
+    {
+        <span class="tok-com">// call Stripe, handle retries, map the response —</span>
+        <span class="tok-com">// none of this leaks past this class</span>
+    }
+}</code></pre>
+    </div>
+
+    <p>
+      The checkout code depends on <code>IPaymentProcessor</code>, never on
+      <code>StripeProcessor</code> directly. Swap Stripe for Paymob later
+      and the checkout flow doesn't change a single line — it was never
+      written against the details in the first place.
+    </p>
+
+    <div class="callout">
+      <span class="label">the actual test</span>
+      <p>
+        If you can change how a class does something without changing
+        anything that calls it, you've abstracted the right thing. If a
+        small internal change forces edits somewhere else in the codebase,
+        the boundary was drawn in the wrong place.
+      </p>
+    </div>
+
+    <h2>Abstraction vs. encapsulation</h2>
+    <p>
+      These two get taught together so often that they start to sound like
+      the same idea. They're not.
+    </p>
+    <ul>
+      <li><strong>Abstraction</strong> is about design — deciding what a class exposes and what it deliberately leaves out of the conversation.</li>
+      <li><strong>Encapsulation</strong> is about enforcement — using access modifiers like <code>private</code> so that other code physically cannot reach the parts you decided to hide.</li>
+    </ul>
+    <p>
+      Abstraction is the decision. Encapsulation is the lock on the door.
+      You can have one without the other, but they're both weaker alone.
+    </p>
+
+    <h2>Where people over-do it</h2>
+    <p>
+      Abstraction has a failure mode: adding an interface or a base class
+      "just in case," for a type that only ever has one implementation.
+      That's not abstraction, it's indirection — an extra file to open
+      every time you want to read what the code actually does. A useful
+      rule of thumb: abstract a thing when you have a second real case
+      that needs it, not when you can imagine one.
+    </p>
+
+    <h2>The short version</h2>
+    <p>
+      Abstraction is deciding what a piece of code has to promise, and
+      protecting everyone else from having to know how it keeps that
+      promise. Get that boundary in the right place, and the rest of
+      object-oriented design — polymorphism, dependency inversion, testable
+      code — gets a lot easier to reach.
+    </p>
+  </div>
+</article>
+
+<footer>
+  <span>© 2026 Muhammed Ahmed.</span>
+  <div class="socials">
+    <a href="https://www.linkedin.com/in/muhammed-ahmed-b9942438b" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="https://github.com/muhammed-work" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammed Ahmed — Software Engineer</title>
+<meta name="description" content="Muhammed Ahmed is a software engineer building backend and full-stack systems with C#, .NET, ASP.NET Core and SQL Server.">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="brand">muhammed<span>.dev</span></a>
+  <nav>
+    <a href="index.html#services">Services</a>
+    <a href="courses.html">Courses</a>
+    <a href="articles.html">Articles</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <span class="hero-kicker">// software engineer, assiut, egypt</span>
+      <h1>Muhammed Ahmed<em>builds backend systems that hold up.</em></h1>
+      <p class="lede">
+        Full stack developer working mainly in C# and .NET. I design APIs,
+        model data, and ship features that are easy to reason about six
+        months later — not just on launch day.
+      </p>
+      <div class="hero-actions">
+        <a href="https://github.com/muhammed-work" class="btn btn-primary">View my projects</a>
+        <a href="index.html#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+      <div class="stack-tags">
+        <span>C#</span>
+        <span>.NET</span>
+        <span>ASP.NET Core</span>
+        <span>SQL Server</span>
+        <span>REST APIs</span>
+      </div>
+    </div>
+
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span></span><span></span><span></span>
+        <span class="file">Shape.cs</span>
+      </div>
+      <pre><code><span class="tok-kw">public</span> <span class="tok-kw">abstract</span> <span class="tok-kw">class</span> <span class="tok-type">Shape</span>
+{
+    <span class="tok-com">// every shape can report its area —</span>
+    <span class="tok-com">// how it does that is its own problem</span>
+    <span class="tok-kw">public</span> <span class="tok-kw">abstract</span> <span class="tok-kw">double</span> <span class="tok-fn">Area</span>();
+}
+
+<span class="tok-kw">public</span> <span class="tok-kw">class</span> <span class="tok-type">Circle</span> : <span class="tok-type">Shape</span>
+{
+    <span class="tok-kw">public</span> <span class="tok-kw">double</span> Radius;
+
+    <span class="tok-kw">public</span> <span class="tok-kw">override</span> <span class="tok-kw">double</span> <span class="tok-fn">Area</span>()
+        => <span class="tok-type">Math</span>.PI * Radius * Radius;
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<section class="section offers" id="services">
+  <div class="section-head">
+    <h2>What I offer</h2>
+    <p>Three ways to work with me right now — one active, two on the way.</p>
+  </div>
+
+  <div class="offer-row">
+    <div class="offer-icon"><i class="fa-solid fa-code"></i></div>
+    <div class="offer-body">
+      <h3>Freelance & contract work</h3>
+      <p>
+        I build and maintain backend services and full-stack apps —
+        APIs, database design, and the ASP.NET Core layer that ties them
+        together. Tell me what you're building and I'll tell you honestly
+        if I'm the right fit.
+      </p>
+    </div>
+    <div class="offer-cta">
+      <a href="https://wa.me/201006600293?text=Hi%20Muhammed%2C%20I%20found%20your%20portfolio%20and%20I%27d%20like%20to%20talk%20about%20a%20project." class="text-link">Message on WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="offer-row">
+    <div class="offer-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+    <div class="offer-body">
+      <h3>Courses</h3>
+      <p>
+        Short, practical courses on backend fundamentals — starting with
+        the C# and OOP concepts I use every day at work.
+      </p>
+    </div>
+    <div class="offer-cta">
+      <a href="courses.html" class="text-link">See course status</a>
+    </div>
+  </div>
+
+  <div class="offer-row">
+    <div class="offer-icon"><i class="fa-solid fa-pen-nib"></i></div>
+    <div class="offer-body">
+      <h3>Articles</h3>
+      <p>
+        Notes on the concepts behind the code — object-oriented design,
+        API patterns, and things I wish someone had explained to me plainly.
+      </p>
+    </div>
+    <div class="offer-cta">
+      <a href="articles.html" class="text-link">Read the articles</a>
+    </div>
+  </div>
+</section>
+
+<section class="section contact-section" id="contact">
+  <div class="contact-grid">
+    <div class="contact-intro">
+      <h2>Let's work together</h2>
+      <p>
+        The fastest way to reach me is WhatsApp. Email works too if you'd
+        rather write it all out first.
+      </p>
+    </div>
+    <div class="contact-list">
+      <a class="contact-item" href="https://wa.me/201006600293" target="_blank" rel="noopener">
+        <span class="offer-icon"><i class="fa-brands fa-whatsapp"></i></span>
+        <span>
+          <span class="label">WhatsApp</span>
+          <span class="value">+20 100 660 0293</span>
+        </span>
+      </a>
+      <a class="contact-item" href="tel:+201006600293">
+        <span class="offer-icon"><i class="fa-solid fa-phone"></i></span>
+        <span>
+          <span class="label">Phone</span>
+          <span class="value">+20 100 660 0293</span>
+        </span>
+      </a>
+      <a class="contact-item" href="mailto:rashahelpmuha@outlook.com">
+        <span class="offer-icon"><i class="fa-solid fa-envelope"></i></span>
+        <span>
+          <span class="label">Email</span>
+          <span class="value">rashahelpmuha@outlook.com</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Muhammed Ahmed.</span>
+  <div class="socials">
+    <a href="https://www.linkedin.com/in/muhammed-ahmed-b9942438b" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="https://github.com/muhammed-work" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+  </div>
+</footer>
+
+</body>
+</html>
